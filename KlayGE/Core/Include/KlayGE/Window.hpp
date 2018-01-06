@@ -25,11 +25,7 @@
 
 #include <KlayGE/RenderSettings.hpp>
 
-#if defined(KLAYGE_COMPILER_MSVC)
-#pragma warning(push)
-#pragma warning(disable: 4512) // boost::iterators::function_output_iterator<T>::output_proxy doesn't have assignment operator
-#pragma warning(disable: 4913) // User defined binary operator ',' exists but no overload could convert all operands
-#elif defined(KLAYGE_COMPILER_GCC)
+#if defined(KLAYGE_COMPILER_GCC)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations" // Ignore auto_ptr declaration
 #elif defined(KLAYGE_COMPILER_CLANG)
@@ -38,9 +34,7 @@
 #pragma clang diagnostic ignored "-Wunused-variable" // Ignore unused variable (mpl_assertion_in_line_xxx) in boost
 #endif
 #include <boost/signals2.hpp>
-#if defined(KLAYGE_COMPILER_MSVC)
-#pragma warning(pop)
-#elif defined(KLAYGE_COMPILER_GCC)
+#if defined(KLAYGE_COMPILER_GCC)
 #pragma GCC diagnostic pop
 #elif defined(KLAYGE_COMPILER_CLANG)
 #pragma clang diagnostic pop
